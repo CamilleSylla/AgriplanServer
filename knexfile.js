@@ -1,21 +1,18 @@
 module.exports ={
     development: {
         client: 'pg',
-        connection: 'postgres://localhost/test',
-        migration: {
-            directory: __dirname + '/db/migrations',
+        connection: {
+          host : '127.0.0.1',
+          user : 'postgres',
+          password : 'laGalere72',
+          database : 'agriplan',
+          charset: 'utf8'
         },
-    },
-    production: {
-        client: 'pg',
-        connection: process.env.DATABASE_URL,
-        migration: {
-            directory: __dirname + '/db/migrations',
+        migrations: {
+          directory: __dirname + '/migrations/knex.js',
         },
         seeds: {
-            directory: {
-                directory: __dirname + '/db/seeds/production',
-            },
-        },
-    },
+          directory: __dirname + '/seeds/knex.js'
+        }
+      }
 }
